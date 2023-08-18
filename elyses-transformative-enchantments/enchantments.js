@@ -8,7 +8,12 @@
  * @returns {number[]} deck with every card doubled
  */
 export function seeingDouble(deck) {
-  return deck.map(card => card * 2);
+  let result = []
+  function double(number) {
+    result.push(number * 2)
+  }
+  deck.forEach(double);
+  return result;
 }
 
 /**
@@ -20,7 +25,19 @@ export function seeingDouble(deck) {
  */
 export function threeOfEachThree(deck) {
   //return deck.map(number => number === 3 ? [3, 3, 3] : number).flat();
-  return deck.flatMap(n => n === 3 ? [3, 3, 3] : n);
+  //return deck.flatMap(n => n === 3 ? [3, 3, 3] : n);
+  let result = []
+  function isthree(card) {
+    switch (card) {
+      case 3:
+        result.push(3, 3, 3);
+        break;
+      default:
+        result.push(card);
+    }
+  }
+  deck.forEach(isthree);
+  return result;
 }
 
 /**

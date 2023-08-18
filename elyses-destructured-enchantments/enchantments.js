@@ -48,7 +48,7 @@ export function swapTopTwoCards(deck) {
  */
 export function discardTopCard(deck) {
   const [firstCard, ...restofcards] = deck;
-  return [firstCard, [...restofcards]];
+  return [firstCard, restofcards];
 }
 
 /** @type {Card[]} **/
@@ -64,5 +64,5 @@ const FACE_CARDS = ['jack', 'queen', 'king'];
  */
 export function insertFaceCards(deck) {
   const [firstCard, ...restofcards] = deck;
-  return [firstCard, 'jack', 'queen', 'king', ...restofcards];
+  return [firstCard, ...FACE_CARDS, ...restofcards];
 }

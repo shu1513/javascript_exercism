@@ -80,3 +80,41 @@ export function memoizeTransform(f) {
 
   };
 }
+
+
+function bookCatalog() {
+  let books = []
+  return {
+    addBook: function (title, author, year) {
+      books.push({
+        title: title,
+        author: author,
+        year: year,
+      });
+    },
+    getBooks: function () {
+      return books;
+    },
+    searchByTitle: function (title) {
+      let result = []
+      for (let book of books) {
+        if (book.title === title) {
+          result.push(book);
+        }
+      }
+      return result;
+    }
+  }
+}
+
+function counterFactory() {
+  let count = 0;
+  return {
+    increment: function () {
+      return count++;
+    },
+    getCount: function () {
+      return count;
+    }
+  }
+}
